@@ -1,0 +1,22 @@
+version: "3.3"
+
+services:
+  app:
+    container_name: abrak_container
+    build:
+      context: .
+      dockerfile: Dockerfile
+    networks:
+      - local-net
+    env_file:
+      - default.env
+    ports:
+      - "8008:8008"
+
+#volumes:
+#  db:
+#    driver: local
+
+networks:
+  local-net:
+    driver: bridge
